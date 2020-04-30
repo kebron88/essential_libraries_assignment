@@ -9,8 +9,12 @@ a common way of normalizing the values in a dataset.
 """
 
 def f(arr):
-    ##########YOUR CODE HERE##########
-    pass
+import numpy as np
+arr = np.array([4,9,11,12,8,6])
+def f(arr):
+    z =  (arr-np.mean(arr))/np.std(arr)
+    return z
+print(f(arr))
     ###########END CODE###############
 
 if __name__=='__main__':
