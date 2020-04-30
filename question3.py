@@ -17,9 +17,14 @@ If you are going to test this function, make sure to use an array of floats rath
 rounding issues.
 """
 
+import numpy as np
+arr = np.array([[5.,1.,-1.], [11., -8., -2], [2., 6., 5.], [4., -9., 12.]])
+
 def f(arr):
-    ##########YOUR CODE HERE##########
-    pass
+    m = np.mean(arr, axis=0)
+    s = np.std(arr,axis=0)
+    return (arr-m)/s
+print(f(arr))
     ###########END CODE###############
 
 if __name__=='__main__':
