@@ -16,9 +16,12 @@ Loading this as a dataframe and running f(df) should return
 5     11     12
 6     13     14
 """
+df = pd.read_csv("testdf8.csv")
+
 def f(df):
-    ##########YOUR CODE HERE##########
-    pass
+    return df[(df["col_1"]%3 == 0) |(df["col_2"]>6)]
+
+print(f(df))
     ###########END CODE###############
 
 if __name__=='__main__':
