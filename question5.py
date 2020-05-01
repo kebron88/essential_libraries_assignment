@@ -19,9 +19,14 @@ Then f(arr1,arr2) should return array([[ 1. ,  2. ,  3.5,  4. ],
                                        [ 2. , 11. , -3. , -2.4]])
 """
 
-def f(arr1, arr2):
-    ##########YOUR CODE HERE##########
-    pass
+arr1 = np.array([[5.5,8,7,-7], [-2.2,9.8,6.3,-7.7], [0,1.2,3.,4], [8.1,4.2,11.,1.]])
+arr2 = np.array([[-4.5,6.,7.1,9.],[1.9,4.,6.6,-3.2], [-2.2,5.7,-9.2,13], [1.1,5.,7.9,9.9]])
+
+def f(arr1,arr2):
+    a = arr1[arr1[:,0]>0,:]
+    b = arr2[arr2[:,0]>0,:]
+    return np.concatenate((a,b) )
+print(f(arr1,arr2))
     ###########END CODE###############
 
 if __name__=='__main__':
