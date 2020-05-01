@@ -16,9 +16,11 @@ Then, f(path) should return the dataframe,
     3        d         4       iv
     4        e         5        v
 """
+path="test_data.txt"
 def f(path):
-    ##########YOUR CODE HERE##########
-    pass
+    df = pd.read_csv(path, header=None, delimiter=" ")
+    return df.rename(columns={0:"column_1", 1:"column_2", 2:"column_3"})
+print(f(path))
     ###########END CODE###############
 
 if __name__=='__main__':
