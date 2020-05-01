@@ -17,9 +17,12 @@ file in this repo called testdf7.csv. Loading this dataframe into memory and run
 5    6.6   12.0
 6   13.0   14.0
 """
+df="testdf7.csv"
 def f(df):
-    ##########YOUR CODE HERE##########
-    pass
+    df = pd.read_csv(df)
+    df["col_1"]=df["col_1"].replace(np.nan,np.mean(df["col_1"]))
+    return df.dropna(subset=["col_2"])
+print(f(df))    pass
     ###########END CODE###############
 
 if __name__=='__main__':
