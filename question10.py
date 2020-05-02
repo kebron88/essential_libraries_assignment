@@ -17,9 +17,12 @@ df1 and the second file as df2 and running f(df1, df2) should return
 3   8  Frank  1987/9/21                            NaN        Stockbroker        New York
 4   9   Gina  1991/12/1              Evergreen College                NaN      Washington
 """
-def f(df1, df2):
-    ##########YOUR CODE HERE##########
-    pass
+
+df1 = pd.read_csv("testdf10_1.csv")
+df2 = pd.read_csv("testdf10_2.csv")
+def f(df1,df2):
+    return df1.merge(df2[["id"]+list(df2.columns.difference(df1.columns))], on= "id", how="inner")
+print(f(df1,df2))
     ###########END CODE###############
 
 if __name__=='__main__':
