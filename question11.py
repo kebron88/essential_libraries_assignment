@@ -10,8 +10,8 @@ loss = 1/N * Sum from i=1 to N  (y[i] - y_pred[i])**2    (See sklearn part 1 vid
 
 Where N is the number of datapoints. For example if y = array([0.5,1,2,4,8]) and y_pred = array([1,2,3,4,5]), then f(y, y_pred) should return 2.25
 """
-y = np.array([4,11.5,0.1,3,8])
-y_pred = np.array([7.1,22,3.1,14,5])
+y = np.array([4,11.5,6,3,8])
+y_pred = np.array([7.1,12,5,6.5,5])
 def f(y,y_pred):
     N=len(y)
     return np.sum((y-y_pred)**2)/N
