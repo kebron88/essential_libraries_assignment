@@ -21,8 +21,16 @@ for index, row in df.iterrows():
 would print out the classes of each datapoint one by one. There is a test csv file called testdf12.csv. Loading this file and running f(df) should return 0.6087900679163438.
 """
 def f(df):
-    ##########YOUR CODE HERE##########
-    pass
+    def safe_log(x):
+        if x == 0:
+            return 0
+        else:
+            return np.log(x)
+df["new"] = np.array([.9,.4,.4,.5,.4,.9])
+print(df)
+
+df["answer"] = np.log(df["new"])*-1
+df
     ###########END CODE###############
 
 if __name__=='__main__':
