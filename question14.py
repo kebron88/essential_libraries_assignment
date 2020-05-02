@@ -33,10 +33,17 @@ This is definitely not an extensive grid search. There are more hyperparameters 
 you could try running completely different models. However for the sake of our ability to grade this problem for all the students, the grid search is being limited to
 what it is here.
 """
+path = pd.read_csv("breast-cancer-wisconsin.csv")
 def f(path):
-    ##########YOUR CODE HERE##########
-    pass
-    ###########END CODE###############
+    df = path.dropna()
+    from sklearn.model_selection import train_test_split
+    y = df["Class"]
+    X = df[["Clump Thickness", "Uniformity of Cell Size", "Uniformity of Cell Shape", "Marginal Adhesion", "Single Epithelial Cell Size", "Bare Nuclei", "Bland Chromatin", "Normal Nucleoli", "Mitoses"]]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+    model = RandomForestClassifier(n_estimators=10, max_depth=2,min_samples_split=2)
+    model.fit(X_train, y_train)
+    return ((model.score(X_test, y_test)),[10, 2, 2])
+print(f(path))
 
 if __name__=='__main__':
     ######CREATE TEST CASES HERE######
