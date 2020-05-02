@@ -15,9 +15,17 @@ dataframe and running f(df) should return
 6  is to hit the ball into the field of play, all...
 7  having them advance counter-clockwise around f...
 """
+df = pd.read_csv("testdf9.csv")
+
 def f(df):
-    ##########YOUR CODE HERE##########
-    pass
+    def L10(s):
+        x = s.split()
+        if len(x)>=10:
+            return True
+        else:
+            return False
+    return df[df["text"].apply(L10)]
+print(f(df))
     ###########END CODE###############
 
 if __name__=='__main__':
