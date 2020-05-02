@@ -20,9 +20,17 @@ a test_size of 0.3, and a random_state of 0. These values are important for when
 There is a file called breast-cancer-wisconsin.csv in this repo (slightly modified from the original dataset in the UCI machine learning repository). Running f(path)
 where path is the path to this csv file should return a score somewhere between 0.9 and 0.95.
 """
+path = pd.read_csv("breast-cancer-wisconsin.csv")
 def f(path):
-    ##########YOUR CODE HERE##########
-    pass
+    df = path.dropna()
+    from sklearn.model_selection import train_test_split
+    y = df["Class"]
+    X = df[["Clump Thickness", "Uniformity of Cell Size", "Uniformity of Cell Shape", "Marginal Adhesion", "Single Epithelial Cell Size", "Bare Nuclei", "Bland Chromatin", "Normal Nucleoli", "Mitoses"]]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+    return model.score(X_test, y_test)
+print(f(path))
     ###########END CODE###############
 
 if __name__=='__main__':
