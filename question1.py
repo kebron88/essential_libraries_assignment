@@ -18,10 +18,26 @@ And so on. Hint: it is possible to add to a subset of an array. For example, say
 and print arr, array([1,2,0,0]) would be outputed. Make sure you are returning a numpy array and not a list of lists.
 """
 
-def f(n):
-    ##########YOUR CODE HERE##########
-    pass
-    ###########END CODE###############
+import numpy as np
+a=1
+b=2
+d=3
+g=4
+def f(a):
+    return np.array([a])
+print(f(a))
+def f(b):
+    c = np.array([b,b-1,b-1,b-1])
+    return c.reshape(2,2)
+print(f(b))
+def f(d):
+    e = np.array([d,d-1,d-2,d-1,d-1,d-2,d-2,d-2,d-2])
+    return e.reshape(3,3)
+print(f(d))
+def f(g):
+    h = np.array([g,g-1,g-2,g-3,g-1,g-1,g-2,g-3,g-2,g-2,g-2,g-3,g-3,g-3,g-3,g-3])
+    return h.reshape(4,4)
+print(f(g))
 
 if __name__=='__main__':
     ######CREATE TEST CASES HERE######
